@@ -9,7 +9,9 @@ const router = jsonServer.router(path.join(__dirname, "../db.json"));
 
 app.db = router.db;
 
-const middlewares = jsonServer.defaults();
+const middlewares = jsonServer.defaults({
+  readOnly: false // السطر ده بيتضاف هنا
+});
 
 app.use(middlewares);
 app.use(auth);
