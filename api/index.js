@@ -14,6 +14,10 @@ const middlewares = jsonServer.defaults({
 });
 
 app.use(middlewares);
+// ده بيخلي السيرفر يستنى شوية لو فيه ضغط
+app.use(jsonServer.rewriter({
+  "/api/*": "/$1"
+}));
 app.use(auth);
 app.use(router);
 
